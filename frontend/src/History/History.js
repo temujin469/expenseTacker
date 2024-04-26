@@ -9,7 +9,7 @@ function History() {
 
     return (
         <HistoryStyled>
-            <h2>Recent History</h2>
+            <h2 className='text-[18px] font-semibold text-gray-600'>Сүүлийн үеийн түүх</h2>
             {history.map((item) =>{
                 const {_id, title, amount, type} = item
                 return (

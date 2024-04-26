@@ -25,7 +25,7 @@ export const GlobalProvider = ({children}) => {
     const getIncomes = async () => {
         const response = await axios.get(`${BASE_URL}get-incomes`)
         setIncomes(response.data)
-        console.log(response.data)
+        console.log("data",response.data)
     }
 
     const deleteIncome = async (id) => {
@@ -109,6 +109,4 @@ export const GlobalProvider = ({children}) => {
     )
 }
 
-export const useGlobalContext = () =>{
-    return useContext(GlobalContext)
-}
+export const useGlobalContext = () => useContext(GlobalContext);

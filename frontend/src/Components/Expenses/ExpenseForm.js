@@ -3,8 +3,8 @@ import styled from 'styled-components'
 import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css";
 import { useGlobalContext } from '../../context/globalContext';
-import Button from '../Button/Button';
 import { plus } from '../../utils/Icons';
+import { Button } from 'antd';
 
 
 function ExpenseForm() {
@@ -44,7 +44,7 @@ function ExpenseForm() {
                     type="text" 
                     value={title}
                     name={'title'} 
-                    placeholder="Expense Title"
+                    placeholder="Зардлын гарчиг"
                     onChange={handleInput('title')}
                 />
             </div>
@@ -52,14 +52,14 @@ function ExpenseForm() {
                 <input value={amount}  
                     type="text" 
                     name={'amount'} 
-                    placeholder={'Expense Amount'}
+                    placeholder={'Зардлын хэмжээ'}
                     onChange={handleInput('amount')} 
                 />
             </div>
             <div className="input-control">
                 <DatePicker 
                     id='date'
-                    placeholderText='Enter A Date'
+                    placeholderText='Огноо оруулна уу?'
                     selected={date}
                     dateFormat="dd/MM/yyyy"
                     onChange={(date) => {
@@ -69,7 +69,7 @@ function ExpenseForm() {
             </div>
             <div className="selects input-control">
                 <select required value={category} name="category" id="category" onChange={handleInput('category')}>
-                    <option value="" disabled >Select Option</option>
+                    <option value="" disabled >Төрөл</option>
                     <option value="education">Education</option>
                     <option value="groceries">Groceries</option>
                     <option value="health">Health</option>
@@ -81,17 +81,12 @@ function ExpenseForm() {
                 </select>
             </div>
             <div className="input-control">
-                <textarea name="description" value={description} placeholder='Add A Reference' id="description" cols="30" rows="4" onChange={handleInput('description')}></textarea>
+                <textarea name="description" value={description} placeholder='Тайлбар' id="description" cols="30" rows="4" onChange={handleInput('description')}></textarea>
             </div>
             <div className="submit-btn">
-                <Button 
-                    name={'Add Expense'}
-                    icon={plus}
-                    bPad={'.8rem 1.6rem'}
-                    bRad={'30px'}
-                    bg={'var(--color-accent'}
-                    color={'#fff'}
-                />
+                <Button type="default" size="large">
+                    Нэмэх
+                </Button>
             </div>
         </ExpenseFormStyled>
     )

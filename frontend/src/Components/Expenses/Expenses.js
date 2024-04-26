@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { useGlobalContext } from '../../context/globalContext';
-import { InnerLayout } from '../../styles/Layouts';
 import Form from '../Form/Form';
 import IncomeItem from '../IncomeItem/IncomeItem';
 import ExpenseForm from './ExpenseForm';
@@ -14,9 +13,8 @@ function Expenses() {
     }, [])
     return (
         <ExpenseStyled>
-            <InnerLayout>
-                <h1>Expenses</h1>
-                <h2 className="total-income">Total Expense: <span>${totalExpenses()}</span></h2>
+            <div>
+                <h2 className="total-income">нийт зардал: <span>₮{totalExpenses()}</span></h2>
                 <div className="income-content">
                     <div className="form-container">
                         <ExpenseForm />
@@ -40,7 +38,7 @@ function Expenses() {
                         })}
                     </div>
                 </div>
-            </InnerLayout>
+            </div>
         </ExpenseStyled>
     )
 }

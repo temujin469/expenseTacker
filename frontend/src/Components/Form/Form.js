@@ -3,8 +3,7 @@ import styled from 'styled-components'
 import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css";
 import { useGlobalContext } from '../../context/globalContext';
-import Button from '../Button/Button';
-import { plus } from '../../utils/Icons';
+import { Button } from 'antd';
 
 
 function Form() {
@@ -44,7 +43,7 @@ function Form() {
                     type="text" 
                     value={title}
                     name={'title'} 
-                    placeholder="Salary Title"
+                    placeholder="орлого"
                     onChange={handleInput('title')}
                 />
             </div>
@@ -52,14 +51,14 @@ function Form() {
                 <input value={amount}  
                     type="text" 
                     name={'amount'} 
-                    placeholder={'Salary Amount'}
+                    placeholder={'Цалингийн хэмжээ'}
                     onChange={handleInput('amount')} 
                 />
             </div>
             <div className="input-control">
                 <DatePicker 
                     id='date'
-                    placeholderText='Enter A Date'
+                    placeholderText='Огноо оруулна уу'
                     selected={date}
                     dateFormat="dd/MM/yyyy"
                     onChange={(date) => {
@@ -69,7 +68,7 @@ function Form() {
             </div>
             <div className="selects input-control">
                 <select required value={category} name="category" id="category" onChange={handleInput('category')}>
-                    <option value=""  disabled >Select Option</option>
+                    <option value=""  disabled >Сонгох</option>
                     <option value="salary">Salary</option>
                     <option value="freelancing">Freelancing</option>
                     <option value="investments">Investiments</option>
@@ -84,14 +83,9 @@ function Form() {
                 <textarea name="description" value={description} placeholder='Add A Reference' id="description" cols="30" rows="4" onChange={handleInput('description')}></textarea>
             </div>
             <div className="submit-btn">
-                <Button 
-                    name={'Add Income'}
-                    icon={plus}
-                    bPad={'.8rem 1.6rem'}
-                    bRad={'30px'}
-                    bg={'var(--color-accent'}
-                    color={'#fff'}
-                />
+            <Button type="default" size="large">
+                    Нэмэх
+                </Button>
             </div>
         </FormStyled>
     )
