@@ -22,4 +22,6 @@ const server = () => {
     })
 }
 
-server()
+server();
+
+module.exports = app;
