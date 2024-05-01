@@ -83,7 +83,7 @@ function Form() {
                 <textarea name="description" value={description} placeholder='Add A Reference' id="description" cols="30" rows="4" onChange={handleInput('description')}></textarea>
             </div>
             <div className="submit-btn">
-            <Button type="default" size="large">
+            <Button type="default" onClick={handleSubmit} size="large">
                     Нэмэх
                 </Button>
             </div>
