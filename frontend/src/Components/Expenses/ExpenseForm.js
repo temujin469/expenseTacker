@@ -81,7 +81,7 @@ function ExpenseForm() {
                 </select>
             </div>
             <div className="input-control">
-                <textarea name="description" value={description} placeholder='Тайлбар' id="description" cols="30" rows="4" onChange={handleInput('description')}></textarea>
+                <textarea className='w-full' name="description" value={description} placeholder='Тайлбар' id="description" rows="4" onChange={handleInput('description')}></textarea>
             </div>
             <div  className="submit-btn">
                 <Button onClick={handleSubmit} type="default" size="large">

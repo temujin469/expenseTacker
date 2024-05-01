@@ -43,7 +43,7 @@ function Form() {
                     type="text" 
                     value={title}
                     name={'title'} 
-                    placeholder="орлого"
+                    placeholder="Гарчиг"
                     onChange={handleInput('title')}
                 />
             </div>
@@ -51,7 +51,7 @@ function Form() {
                 <input value={amount}  
                     type="text" 
                     name={'amount'} 
-                    placeholder={'Цалингийн хэмжээ'}
+                    placeholder={'Орлогын хэмжээ'}
                     onChange={handleInput('amount')} 
                 />
             </div>
@@ -80,7 +80,7 @@ function Form() {
                 </select>
             </div>
             <div className="input-control">
-                <textarea name="description" value={description} placeholder='Add A Reference' id="description" cols="30" rows="4" onChange={handleInput('description')}></textarea>
+                <textarea className='w-full' name="description" value={description} placeholder='Add A Reference'  rows="4" onChange={handleInput('description')}></textarea>
             </div>
             <div className="submit-btn">
             <Button type="default" onClick={handleSubmit} size="large">

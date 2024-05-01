@@ -4,6 +4,7 @@ import History from "../../History/History";
 import { dollar } from "../../utils/Icons";
 import Chart from "../Chart/Chart";
 import { useGlobalContext } from "../../context/globalContext";
+import { useThemeContext } from "../../context/ThemeContext";
 
 function Dashboard() {
   const {
@@ -21,7 +22,11 @@ function Dashboard() {
     getExpenses();
   }, []);
 
-  console.log("df",incomes)
+  // console.log("df",incomes)
+
+  const {
+    currentColor,
+  } = useThemeContext();
 
   return (
     <div>
@@ -30,27 +35,27 @@ function Dashboard() {
           <div className="chart-con">
             <Chart />
             <div className="flex w-full gap-5 flex-wrap my-10">
-              <div className="border rounded-2xl px-3 py-5 flex-col items-center flex-1 shadow-sm">
-                <h2 className="text-[18px] font-semibold text-gray-600">
+              <div style={{borderColor:currentColor}} className="border rounded-2xl px-3 py-5 flex-col items-center flex-1 shadow-sm">
+                <h2 style={{color:currentColor}} className="text-[18px] font-semibold">
                   Нийт орлого
                 </h2>
-                <p className="text-[30px] whitespace-nowrap font-bold text-gray-700">
+                <p style={{color:currentColor}} className="text-[30px] whitespace-nowrap font-bold">
                   ₮ {totalIncome()}
                 </p>
               </div>
-              <div className="border rounded-2xl px-3 py-5 flex-col items-center flex-1 shadow-sm">
-                <h2 className="text-[18px] font-semibold text-gray-600">
+              <div style={{borderColor:currentColor}} className="border rounded-2xl px-3 py-5 flex-col items-center flex-1 shadow-sm">
+                <h2 style={{color:currentColor}} className="text-[18px] font-semibold">
                   Нийт зардал
                 </h2>
-                <p className="text-[30px] whitespace-nowrap font-bold text-gray-700">
+                <p style={{color:currentColor}} className="text-[30px] whitespace-nowrap font-bold">
                   ₮ {totalExpenses()}
                 </p>
               </div>
-              <div className="border rounded-2xl px-3 py-5 flex-col items-center flex-1 shadow-sm">
-                <h2 className="text-[18px] font-semibold text-gray-600">
+              <div style={{borderColor:currentColor}} className="border rounded-2xl px-3 py-5 flex-col items-center flex-1 shadow-sm">
+                <h2 style={{color:currentColor}} className="text-[18px] font-semibold">
                   Нийт үлдэгдэл
                 </h2>
-                <p className="text-[30px] whitespace-nowrap font-bold text-gray-700">
+                <p style={{color:currentColor}} className="text-[30px] whitespace-nowrap font-bold">
                   ₮ {totalBalance()}
                 </p>
               </div>

@@ -4,22 +4,27 @@ import { useGlobalContext } from '../../context/globalContext';
 import Form from '../Form/Form';
 import IncomeItem from '../IncomeItem/IncomeItem';
 import ExpenseForm from './ExpenseForm';
+import { useThemeContext } from '../../context/ThemeContext';
 
 function Expenses() {
     const {addIncome,expenses, getExpenses, deleteExpense, totalExpenses} = useGlobalContext()
 
     useEffect(() =>{
         getExpenses()
-    }, [])
+    }, []);
+
+    const {
+        currentColor,
+      } = useThemeContext();
+    
     return (
-        <ExpenseStyled>
-            <div>
-                <h2 className="total-income">нийт зардал: <span>₮{totalExpenses()}</span></h2>
-                <div className="income-content">
-                    <div className="form-container">
+            <div className='w-full'>
+                <h2 style={{color:currentColor}} className="w-full rounded-3xl p-10 border-2 mb-10 shadow-sm font-bold text-xl lg:text-3xl">нийт зардал: <span>₮{totalExpenses()}</span></h2>
+                <div className="flex justify-between flex-wrap gap-10">
+                    <div className="flex-1">
                         <ExpenseForm />
                     </div>
-                    <div className="incomes">
+                    <div className="flex-1">
                         {expenses.map((income) => {
                             const {_id, title, amount, date, category, description, type} = income;
                             console.log(income)
@@ -39,38 +44,7 @@ function Expenses() {
                     </div>
                 </div>
             </div>
-        </ExpenseStyled>
     )
 }
-
-const ExpenseStyled = styled.div`
-    display: flex;
-    overflow: auto;
-    .total-income{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: #FCF6F9;
-        border: 2px solid #FFFFFF;
-        box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
-        border-radius: 20px;
-        padding: 1rem;
-        margin: 1rem 0;
-        font-size: 2rem;
-        gap: .5rem;
-        span{
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--color-green);
-        }
-    }
-    .income-content{
-        display: flex;
-        gap: 2rem;
-        .incomes{
-            flex: 1;
-        }
-    }
-`;
 
 export default Expenses
